@@ -1,4 +1,5 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import ProductTable from "./ProductTable";
 
 const ProductList = () => {
   const plantsArray = [
@@ -244,8 +245,10 @@ const ProductList = () => {
     },
   ];
   return (
-    <div className=" container">
-      <div></div>
+    <div className=" grid grid-cols-1 gap-4 my-4 justify-center items-center">
+      {plantsArray.map((item) => (
+        <ProductTable category={item.category} plants={item.plants} />
+      ))}
     </div>
   );
 };
