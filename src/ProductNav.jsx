@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const ProductNav = () => {
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  console.log(cartItems);
   return (
     <div className=" container">
       <div className=" flex  justify-between items-center   px-8 bg-green-400">
@@ -22,7 +25,10 @@ const ProductNav = () => {
         </div>
         <div>
           <Link to="/cart" className="">
-            <h1 className="cart">
+            <h1 className="cart relative  ">
+              <span className=" absolute bottom-0 right-0 -translate-x-6 -translate-y-5 text-white font-bold text-2xl">
+                {cartItems.length}
+              </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 256 256"

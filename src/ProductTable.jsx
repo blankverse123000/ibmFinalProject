@@ -9,7 +9,7 @@ const ProductTable = ({ category, plants }) => {
       </h1>
       <div className=" grid grid-cols-3 gap-4 justify-center px-20 py-4 items-center  ">
         {plants.map((plant) => (
-          <ProductCard plant={plant} />
+          <ProductCard key={plant.name} plant={plant} />
         ))}
       </div>
     </div>
