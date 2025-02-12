@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const ProductCard = ({ plant: { name, image, description, cost } }) => {
+const ProductCard = ({ plant: { name, id, image, description, cost } }) => {
   const dispatch = useDispatch();
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   const handleAddToCart = () => {
-    if (cartItems.find((item) => item.name === name)) {
+    if (cartItems.find((item) => item.id === id)) {
       return;
     }
     dispatch({
       type: "cart/addToCart",
-      payload: { name, image, description, cost, quantity: 1 },
+      payload: { name, id: Date.now(), image, description, cost, quantity: 1 },
     });
   };
 
@@ -28,7 +28,11 @@ const ProductCard = ({ plant: { name, image, description, cost } }) => {
         <p>{description}</p>
         <button
           onClick={handleAddToCart}
-          className=" cursor-pointer py-2 px-4 rounded-md bg-green-400 text-white"
+          className={`cursor-pointer py-2 px-4 rounded-md  text-white ${
+            cartItems.find((item) => item.name === name)
+              ? "bg-gray-400"
+              : "bg-green-400"
+          }`}
         >
           {cartItems.find((item) => item.name === name)
             ? "Added to Cart"

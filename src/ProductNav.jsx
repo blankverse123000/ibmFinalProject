@@ -6,25 +6,27 @@ const ProductNav = () => {
   console.log(cartItems);
   return (
     <div className=" container">
-      <div className=" flex  justify-between items-center   px-8 bg-green-400">
-        <Link to="/" className=" flex  items-center gap-4">
-          <img
-            className=" w-16 h-16 rounded-full"
-            src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png"
-            alt=""
-          />
-          <div className=" flex flex-col text-white">
-            <h3 className=" text-2xl font-bold ">Paradise Nursery</h3>
-            <i style={{ color: "white" }}>Where Green Meets Serenity</i>
-          </div>
-        </Link>
-        <div>
+      <div className=" grid grid-cols-3  justify-between items-center   px-8 bg-green-400">
+        <div className=" ">
+          <Link to="/" className=" flex  items-center gap-4 order-1">
+            <img
+              className=" w-16 h-16 rounded-full"
+              src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png"
+              alt=""
+            />
+            <div className=" flex flex-col text-white">
+              <h3 className=" text-2xl font-bold ">Paradise Nursery</h3>
+              <i style={{ color: "white" }}>Where Green Meets Serenity</i>
+            </div>
+          </Link>
+        </div>
+        <div className="  ">
           <h1 className=" text-3xl text-white text-center font-medium">
             Plants
           </h1>
         </div>
-        <div>
-          <Link to="/cart" className="">
+        <div className="">
+          <Link to="/cart" className=" flex justify-end me-4">
             <h1 className="cart relative  ">
               <span className=" absolute bottom-0 right-0 -translate-x-6 -translate-y-5 text-white font-bold text-2xl">
                 {cartItems.length}
